@@ -6,7 +6,6 @@ const URL = 'http://localhost:8080/signup';
 
 export const SignupPage = () => {
   const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState(null);
   const [successMessage, setSuccessMessage] = useState(null);

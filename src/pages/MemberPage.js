@@ -1,3 +1,4 @@
+import { GuestbookMessages } from 'components/GuestbookMessages';
 import React, { useEffect, useState } from 'react'
 
 const URL = 'http://localhost:8080/users'
@@ -7,7 +8,6 @@ export const MemberPage = () => {
   const userId = window.localStorage.getItem('userId');
   const [authorized, setAuthorized] = useState(false);
   const [user, setUser] = useState(null);
-
   useEffect(() => {
     fetch(`${URL}/${userId}`, {
       method: 'GET',
@@ -44,6 +44,9 @@ export const MemberPage = () => {
           <h2>You are now logged in and can use the guestbook</h2>
           <div>
             <button type="submit" onClick={handleLogOut}>Log Out</button>
+          </div>
+          <div>
+            <GuestbookMessages user={user.name} />
           </div>
         </section>
 

@@ -28,6 +28,7 @@ export const LoginPage = () => {
         }
       })
       .then((user) => {
+        // eslint-disable-next-line dot-notation
         if (user['message']) {
           setErrorMessage(user.message);
         } else {
