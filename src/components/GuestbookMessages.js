@@ -26,6 +26,7 @@ export const GuestbookMessages = (props) => {
     })
       .then(() => {
         setPostMessage(message)
+   
       }).catch(() => {
         alert('Try again');
       })

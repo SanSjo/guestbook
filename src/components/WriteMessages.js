@@ -8,6 +8,7 @@ export const WriteMessages = (props) => {
     event.preventDefault()
     props.submitForm(message);
     setMessage('');
+
   }
 
   return (
@@ -19,7 +20,7 @@ export const WriteMessages = (props) => {
         </FormGroup> */}
         <FormGroup>
           <Label>Write a greeting in the guestbook</Label>
-          <Input type="textarea" name="text" onChange={(event) => setMessage(event.target.value)} />
+          <Input type="textarea" name="text" value={message} onChange={(event) => setMessage(event.target.value)} />
         </FormGroup>
         <FormGroup>
           <Button onClick={handleForm}>Send greeting</Button>
