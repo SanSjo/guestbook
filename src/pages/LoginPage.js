@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import { useHistory } from 'react-router'
+import { Header } from '../components/Header'
+import { TopHeader } from '../components/TopHeader'
 
 const URL = 'http://localhost:8080/login';
 
@@ -38,7 +40,7 @@ export const LoginPage = () => {
           if (name < 0) {
             return alert('Please fill in name and password');
           } else {
-            history.push('/MemberPage');
+            history.push('/GuestBook');
           }
         }
       })
@@ -46,13 +48,19 @@ export const LoginPage = () => {
   }
 
   return (
-
-    <Form onSubmit={handleSubmitLogin}>
-      <FormGroup>
+    <>
+    <TopHeader />
+    <section style={{display: 'flex', justifyContent: 'center'}}>
+    <div style={{ height: 500 }}>
+      <Header />
+    </div>
+    <div style={{width: '50%'}}>
+    <Form style={{ display: 'flex', flexDirection: 'column', padding: '5%' }} onSubmit={handleSubmitLogin}>
+      <FormGroup className="signupInputContainer">
         <Label>User</Label>
         <Input type="text" placeholder="Enter username" name="name" value={name} onChange={(event) => setName(event.target.value)} />
       </FormGroup>
-      <FormGroup>
+      <FormGroup className="signupInputContainer">
         <Label>Password</Label>
         <Input type="password" placeholder="Password" name="password" value={password} onChange={(event) => setPassword(event.target.value)} />
       </FormGroup>
@@ -60,6 +68,9 @@ export const LoginPage = () => {
 
       <Button>Login</Button>
     </Form>
+    </div>
+    </section>
+    </>
   )
 }
 

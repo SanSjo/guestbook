@@ -1,0 +1,80 @@
+.headerContainer {
+    margin: 0;
+}
+h1.header {
+    background: url('../assets/img/book.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 600px;
+    width: 100%;
+    font-family: 'Xanh Mono', monospace;
+    padding-top: 10%;
+    color: #fff;
+    margin: 0;
+    padding: 5%;
+    font-size: 50px;
+}
+
+.titleContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.topHeaderContainer{
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    
+    
+}
+.logo {
+    font-family: 'Calligraffitti', cursive;
+    font-size: 30px;
+    margin: 0;
+    padding: 5%;
+    width: 100%;
+    color: #b88026;
+    font-weight: 600;
+}
+.topLink {
+    padding-left: 1%;
+    padding-right: 1%;
+    text-decoration: none;
+    color: #b88026;
+    width: 120px;
+    font-size: 18px;
+   
+}
+
+.topLink:hover{
+    text-decoration: underline;
+    color: blue;
+}
+
+.topHeader {
+    background-color: #fff;
+    margin: 0;
+    color: #e9a230;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+/* Signup page */
+
+.signupInputContainer {
+    padding-left: 2%;
+    padding-right: 2%;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+}
+
+.signupBtn {
+
+    margin-left: 1%;
+    margin-right: 1%;
+}

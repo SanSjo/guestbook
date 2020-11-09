@@ -1,5 +1,6 @@
 import { GuestbookMessages } from 'components/GuestbookMessages';
 import React, { useEffect, useState } from 'react'
+import { TopHeader } from '../components/TopHeader'
 
 const URL = 'http://localhost:8080/users'
 
@@ -38,6 +39,7 @@ export const MemberPage = () => {
 
   return (
     <div>
+       <TopHeader />
       {authorized && (
         <section>
           <h1>Welcome {user.name}</h1>

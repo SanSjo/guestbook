@@ -3,12 +3,18 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { SignupPage } from './pages/SignupPage'
 import { LoginPage } from './pages/LoginPage'
 import { MemberPage } from './pages/MemberPage'
+import { HomePage } from './pages/HomePage'
 
 export const App = () => {
   return (
     <BrowserRouter>
       <Switch>
         <Route path="/" exact>
+          <div>
+            <HomePage />
+          </div>
+        </Route>
+        <Route path="/SignupPage" exact>
           <div>
             <SignupPage />
           </div>
@@ -18,7 +24,7 @@ export const App = () => {
             <LoginPage />
           </div>
         </Route>
-        <Route>
+        <Route path="/Guestbook">
           <div>
             <MemberPage />
           </div>

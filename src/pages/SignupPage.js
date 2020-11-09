@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
-import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import { Form, FormGroup, Label, Input } from 'reactstrap';
 import { useHistory } from 'react-router'
+import { Header } from 'components/Header';
+import { TopHeader } from '../components/TopHeader'
+import '../style/style.css'
 
 const URL = 'http://localhost:8080/signup';
 
@@ -26,7 +29,7 @@ export const SignupPage = () => {
           setErrorMessage(false);
           return res.json()
         } else {
-          setErrorMessage('Could not create user');
+          setErrorMessage('User already exist');
           setSuccessMessage(false);
           return res.text().then((json) => {
             throw new Error(json);
@@ -44,30 +47,42 @@ export const SignupPage = () => {
   }
 
   return (
-    <div>
-      <h1>Welcome to the guest book</h1>
-      <h2>Log in to create your post</h2>
-      <Form onSubmit={handleSubmit}>
-        <FormGroup>
+    <>
+    <TopHeader />
+    <section style={{display: 'flex', justifyContent: 'center'}}>
+    
+    <div style={{ height: 500 }}>
+     
+      <Header />
+    </div>
+    <div style={{ width: '50%' }}>
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <h2>Log in to create your post</h2>
+      </div>
+      <Form style={{ display: 'flex', flexDirection: 'column', padding: '5%' }} onSubmit={handleSubmit}>
+        <FormGroup className="signupInputContainer">
           <Label>User name</Label>
-          <Input type="text" placeholder="User name" name="name" value={name} onChange={(event) => setName(event.target.value)} />
+          <Input type="text" placeholder="User name" name="name" value={name} onChange={(event) => setName(event.target.value)} required />
         </FormGroup>
         {/* <FormGroup>
           <Label>Email</Label>
           <Input type="email" placeholder="Enter email" name="email" value={email} onChange={(event) => setEmail(event.target.value)} />
         </FormGroup> */}
-        <FormGroup>
+        <FormGroup className="signupInputContainer">
           <Label>Password</Label>
-          <Input type="password" placeholder="Password" name="password" value={password} onChange={(event) => setPassword(event.target.value)} />
+          <Input type="password" placeholder="Password" name="password" value={password} onChange={(event) => setPassword(event.target.value)} required />
         </FormGroup>
         {errorMessage && <div>{errorMessage}</div>}
         {successMessage && <div>{successMessage}</div>}
 
-        <Button>Submit</Button>
-        <Button onClick={onLoginPage}>Log in</Button>
+        <button className="signupBtn">Submit</button>
+        <button className="signupBtn" onClick={onLoginPage}>Log in</button>
       </Form>
     </div>
+    </section>
+    </>
   )
 }
 
 export default SignupPage;
+
